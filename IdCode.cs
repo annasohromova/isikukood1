@@ -4,7 +4,7 @@
 
     public IdCode(string idCode)
     {
-        _idCode = idCode;
+        _idCode = idCode;//свзяь между переменной 
     }
 
     private bool IsValidLength()
@@ -14,8 +14,6 @@
 
     private bool ContainsOnlyNumbers()
     {
-        // return _idCode.All(Char.IsDigit);
-
         for (int i = 0; i < _idCode.Length; i++)
         {
             if (!Char.IsDigit(_idCode[i]))
@@ -142,9 +140,9 @@
 
     public static string GetBirthplaceFromIdCode(string IdCode)
     {
-        List<char> IdCodeList = IdCode.ToCharArray().ToList();
-        string tahed8910 = string.Join("", IdCodeList.Skip(7).Take(3));
-        int t = int.Parse(tahed8910);
+        List<char> IdCodeList = IdCode.ToCharArray().ToList();//создается новый список который будет содержать символы исикукода
+        string tahed8910 = string.Join("", IdCodeList.Skip(7).Take(3));//создается переменная тяхед, которая будет хранить строку, которая получилась при объединении части символов
+        int t = int.Parse(tahed8910);//создается переменная, которая будет получать значение из тяхед.custom
 
         string haigla = "";
 
@@ -210,25 +208,17 @@
 
     public static List<string> NaisedMehed(List<string> ikoodid)
     {
-        List<string> naised = new List<string>();
-        List<string> mehed = new List<string>();
+        List<string> people = new List<string>();//читает каждый исикукод в списке, в которой мы добавили
 
         foreach (string kood in ikoodid)
         {
-            char[] koodArray = kood.ToCharArray();
-            if (int.Parse(koodArray[0].ToString()) % 2 == 0)
-            {
-                naised.Add(kood);
-            }
-            else
-            {
-                mehed.Add(kood);
-            }
+            char[] koodArray = kood.ToCharArray();// Преобразуем идентификационный код в массив символов
+            string gender = (int.Parse(koodArray[0].ToString()) % 2 == 0) ? "Naine" : "Mees";//проверяет первую цифру кода  чтобы определить пол человека
+            // создаем строку, содержащую информацию о поле и исикукоде,добавляем ее в список
+            people.Add($"{gender}");
         }
 
-        naised.AddRange(mehed);
-
-        return naised;
+        return people;
     }
 
 

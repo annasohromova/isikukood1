@@ -1,8 +1,10 @@
-﻿public class IdCode
+﻿public class IdCode//Здесь объявляется класс IdCod В ООП класс представляет собой шаблон для создания объектов.
 {
-    private readonly string _idCode;
+    private readonly string _idCode;//Эта строка объявляет приватное поле _idCode внутри класса.
 
-    public IdCode(string idCode)
+    public IdCode(string idCode)//Это объявление конструктора класса. Конструктор - это метод, 
+        который вызывается при создании нового объекта данного класса. Он принимает один аргумент idCode,
+        который будет использоваться для инициализации поля _idCode.
     {
         _idCode = idCode;//свзяь между переменной 
     }
